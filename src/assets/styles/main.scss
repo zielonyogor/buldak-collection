@@ -1,0 +1,11 @@
+$secondary-color: #6e4788;//rgb(243, 174, 177);
+$font-color: rgb(43, 28, 66);
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: $secondary-color;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: $font-color;
+}
+
