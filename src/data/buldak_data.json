@@ -3,24 +3,60 @@
         "id": 1,
         "name": "Carbonara",
         "imageUrl": "https://cosdobrego.eu/userdata/public/gfx/3936/SamYang-Zupka-Carbonara-Ramen-Makaron-Buldak-Hot-Chicken-Ostry-Kurczak-130g.jpg",
-        "rating": 8
+        "rating": 8,
+        "spice": "Mild",
+        "whereToBuy": [
+            "Carrefour",
+            "Auchan"
+        ],
+        "bestWith": [
+            "Corn",
+            "Cheese"
+        ]
     },
     {
         "id": 2,
         "name": "Mala",
         "imageUrl": "https://www.okashi.pl/wp-content/uploads/2023/11/marajabv.jpg",
-        "rating": 5
+        "rating": 5,
+        "spice": "Mild",
+        "whereToBuy": [
+            "Carrefour",
+            "Auchan"
+        ],
+        "bestWith": [
+            "Corn",
+            "Cheese"
+        ]
     },
     {
         "id": 3,
         "name": "Black",
         "imageUrl": "https://www.okashi.pl/wp-content/uploads/2021/10/ramen-ostry-kurczak-140g.jpg",
-        "rating": 7
+        "rating": 7,
+        "spice": "Mild",
+        "whereToBuy": [
+            "Carrefour",
+            "Auchan"
+        ],
+        "bestWith": [
+            "Corn",
+            "Cheese"
+        ]
     },
     {
         "id": 4,
         "name": "Jjajang",
         "imageUrl": "https://wokanmi.pl/userdata/public/gfx/194/samyang-ramen-jjajang.jpg",
-        "rating": 10
+        "rating": 10,
+        "spice": "Mild",
+        "whereToBuy": [
+            "Carrefour",
+            "Auchan"
+        ],
+        "bestWith": [
+            "Corn",
+            "Cheese"
+        ]
     }
 ]

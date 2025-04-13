@@ -1,18 +1,15 @@
-import ListItem from '@/components/ListItem';
-import BuldakInfoProps from '@/types/buldak';
+import { ReactNode } from 'react';
 
 interface ListProps {
-    listItems: Array<BuldakInfoProps>;
+    className?: string,
+    children: ReactNode,
 }
 
-export default function List({listItems}: ListProps) {
-    console.log(listItems);
+export default function List({className = "", children}: ListProps) {
 
     return (
-        <div>
-            {listItems.map((item) => 
-            <ListItem key={item.id} {...item} />
-            )}
+        <div className={`list-container ${className}`}>
+            {children}
         </div>
     )
 }

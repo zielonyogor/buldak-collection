@@ -1,12 +1,13 @@
-import BuldakInfoProps from '@/types/buldak';
-import Rating from '@/components/Rating';
+import { MouseEventHandler, ReactNode } from 'react';
 
-export default function ListItem(props: BuldakInfoProps) {
+interface ListItemProps {
+    className?: string;
+    children?: ReactNode;
+    onClick: MouseEventHandler<HTMLButtonElement>;
+}
+
+export default function ListItem({className = "", children, onClick}: ListItemProps) {
     return (
-        <div>
-            <h2>{props.name}</h2>
-            <button>Click</button>
-            <Rating rating={props.rating} maxValue={10}/>
-        </div>
+        <button className={`list-item ${className}`} onClick={onClick} >{children}</button>
     )
 }

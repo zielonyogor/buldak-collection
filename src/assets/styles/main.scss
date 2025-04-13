@@ -1,11 +1,22 @@
-$secondary-color: #6e4788;//rgb(243, 174, 177);
-$font-color: rgb(43, 28, 66);
+@use "@/assets/styles/colors" as *;
 
 body {
     padding: 0;
     margin: 0;
-    background-color: $secondary-color;
+    background-color: $primary-color;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: $font-color;
 }
 
+.details-container {
+    background-color: $primary-color-focus;
+    padding: 10px;
+}
+
+.list-item {
+    font-size: 1rem;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+}

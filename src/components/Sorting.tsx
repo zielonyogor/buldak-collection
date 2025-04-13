@@ -1,8 +1,13 @@
 
 export default function Sorting() {
+
+    function updateSorting() {
+
+    }
+
     return (
-        <div className="sorting-container">
-            
-        </div>
+        <button onClick={updateSorting} className="sorting-container">
+            Sort
+        </button>
     )
 }

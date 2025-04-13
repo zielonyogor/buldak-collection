@@ -10,8 +10,8 @@ export default function Rating({rating, maxValue} : RatingProps) {
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
         setRating(Number(e.currentTarget.value));
-        
     }
+    
     return (
         <div className="rating-container">
             <input className="rating-input" type="range" 
