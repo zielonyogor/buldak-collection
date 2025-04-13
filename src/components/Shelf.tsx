@@ -13,8 +13,10 @@ export default function Shelf() {
 
     return (
         <div className='shelf'>
-            <SearchBar />
-            <List className="shelf">
+            <div className='search-sort-container'>
+                <SearchBar />
+            </div>
+            <List>
                 {buldakArray.map((buldak) => <ListItem key={buldak.id} onClick={onItemClicked} className='buldak-item'>
                     <img src={buldak.imageUrl} />
                 </ListItem>)}

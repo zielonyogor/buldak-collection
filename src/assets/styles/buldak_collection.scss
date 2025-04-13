@@ -9,7 +9,34 @@ $pot-url: url("@/assets/images/pot.svg");
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5vw;
+    padding: 3vw;
+}
+
+.shelf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh;
+    margin-right: 30px;
+
+    .list-container {
+        margin-top: 30px;
+    }
+
+    .search-sort-container {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 20px;
+        display: flex;
+
+        .search-container {
+            flex-grow: 1;
+
+            input {
+                width: 100%;
+            }
+        }
+    }
 }
 
 .details-container {
@@ -25,16 +52,35 @@ $pot-url: url("@/assets/images/pot.svg");
 }
 
 .buldak-details {
-    //background-color: #8998A2;
-    padding: 10px 40px;
+    padding: 60px 40px 20px 40px ;
     background-image: $pot-url;
     background-size: cover;
+
+    color: $font-color-light;
+
+    table > tbody {
+
+        tr {
+            td {
+                box-sizing: border-box;
+                padding: 10px;
+            }
+            td:nth-child(1) {
+                font-weight: 500;
+            }
+            td:nth-child(2) {
+                padding-left: 20px;
+                width: 70%;
+            }
+        }
+    }
 }
 
 .buldak-item {
     margin: 10px;
 
     &::after {
+        margin-top: 4px;
         content: "";
         display: block;
         width: 228px;
@@ -46,5 +92,21 @@ $pot-url: url("@/assets/images/pot.svg");
     img {
         width: 120px;
         max-height: 120px;
+
+        &:hover {
+            animation: float-up-down 1.6s ease-in-out infinite;
+        }
+    }
+}
+
+@keyframes float-up-down {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+    100% {
+        transform: translateY(0px);
     }
 }
