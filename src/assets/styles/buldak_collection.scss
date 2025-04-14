@@ -155,18 +155,45 @@ $knob-url: url("@/assets/images/knob.svg");
     }
 
     .rating-input{
-        opacity: 10%;
-        width: 80px;
+        $w: 80px;
+        $h: 40px;
 
-        &::after {
-            z-index: 2;
+        width: $w;
+        height: $w;
+
+        &::before {
+            opacity: 0.5;
             content: "";
             display: block;
+            position: absolute;
+            height: 100px;
             width: 100px;
-            width: 100px;
-            background-image: $knob-url;
-            background-size: contain;
-            background-repeat: no-repeat;
+            background-color: red;
+            top: calc(50% - $w / 2 - $h / 4);
+            left: calc(50% - $w / 2 - $h / 4);
         }
+        // --w: 200px;
+        // --w2: 12px;
+        // // --r: 
+        // --angle: 160deg;
+        // width: var(--w);
+        // height: var(--w);
+        // position: relative;
+        // outline: 1px solid red;
+        // cursor: grab;
+        // // z-index: -1;
+        // &::before {
+        //     content: '';
+        //     position: absolute;
+        //     top: calc(50% - var(--w) / 2 - var(--w2) / 4);
+        //     left: calc(50% - var(--w) / 2 - var(--w2) / 4);
+        //     width: var(--w);
+        //     height: var(--w);
+        //     border-radius: 50%;
+        //     background: hsla(0, 20%, 60%, .7);
+        //     background: repeating-conic-gradient(  #888 0%, #ddd 15%,  #999 33%, #eee 40%,  #aaa 50%);
+        //     opacity: var('');
+        //     transform: rotate(var(--angle));
+        // }
     }
 }

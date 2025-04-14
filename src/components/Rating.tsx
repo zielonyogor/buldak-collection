@@ -7,7 +7,12 @@ interface RatingProps {
 export default function Rating({rating} : RatingProps) {
     const [currentRating, setRating] = React.useState(rating);
 
+    React.useEffect(() => {
+        setRating(rating);
+    }, [rating])
+
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+        console.log(`current rating: ${e.currentTarget.value}`);
         setRating(Number(e.currentTarget.value));
     }
     

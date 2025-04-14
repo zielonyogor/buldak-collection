@@ -5,15 +5,21 @@ import ListItem from '@/components/ListItem';
 import buldakArray from '@/data/buldak_data.json';
 import "@/assets/styles/buldak_collection.scss";
 import Sorting from './Sorting';
+import React from 'react';
+import BuldakInfoProps from '@/types/buldak';
 
-export default function Shelf() {
+interface ShelfProps {
+    onItemClicked: (buldak: BuldakInfoProps) => void;
+}
 
-    function onItemClicked(value: any) {
-        console.log(value);
-    }
+export default function Shelf({onItemClicked}: ShelfProps) {
+
+    const [currentArray, setCurrentArray] = React.useState(buldakArray);
 
     function onSearchResultChanged(query: string) {
         console.log(`Search: ${query}`);
+        const re = new RegExp(`.*${query}.*`);
+        setCurrentArray(buldakArray.filter((item) => re.test(item['name'].toLowerCase())));
     }
 
     return (
@@ -25,7 +31,11 @@ export default function Shelf() {
                 <Sorting />
             </div>
             <List>
-                {buldakArray.map((buldak) => <ListItem key={buldak.id} onClick={onItemClicked} className='buldak-item'>
+                {currentArray.map((buldak) => 
+                <ListItem key={buldak.id} 
+                    onClick={() => onItemClicked(buldak)} 
+                    className='buldak-item'
+                >
                     <img src={buldak.imageUrl} />
                 </ListItem>)}
             </List>
