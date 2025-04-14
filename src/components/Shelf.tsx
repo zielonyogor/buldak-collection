@@ -4,6 +4,7 @@ import ListItem from '@/components/ListItem';
 
 import buldakArray from '@/data/buldak_data.json';
 import "@/assets/styles/buldak_collection.scss";
+import Sorting from './Sorting';
 
 export default function Shelf() {
 
@@ -15,6 +16,9 @@ export default function Shelf() {
         <div className='shelf'>
             <div className='search-sort-container'>
                 <SearchBar />
+                <Sorting />
+                <Sorting />
+                <Sorting />
             </div>
             <List>
                 {buldakArray.map((buldak) => <ListItem key={buldak.id} onClick={onItemClicked} className='buldak-item'>

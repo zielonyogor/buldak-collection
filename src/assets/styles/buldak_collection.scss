@@ -63,7 +63,7 @@ $pot-url: url("@/assets/images/pot.svg");
         tr {
             td {
                 box-sizing: border-box;
-                padding: 10px;
+                padding: 8px;
             }
             td:nth-child(1) {
                 font-weight: 500;
@@ -97,6 +97,13 @@ $pot-url: url("@/assets/images/pot.svg");
             animation: float-up-down 1.6s ease-in-out infinite;
         }
     }
+
+    &:focus {
+        border: none;
+        img {
+            animation: float-up-down 1.6s ease-in-out infinite;
+        }
+    }
 }
 
 @keyframes float-up-down {
@@ -108,5 +115,14 @@ $pot-url: url("@/assets/images/pot.svg");
     }
     100% {
         transform: translateY(0px);
+    }
+}
+
+.rating-container {
+    cursor: grab;
+    background-color: $metal-color;;
+
+    .rating-input{
+        opacity: 10%;
     }
 }

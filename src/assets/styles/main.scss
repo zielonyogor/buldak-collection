@@ -20,6 +20,12 @@ input[type="text"] {
     }
 }
 
+button {
+    border: none;
+    font-family: "Azeret Mono", Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1rem;;
+}
+
 .details-container {
     background-color: $primary-color-focus;
     padding: 10px;
