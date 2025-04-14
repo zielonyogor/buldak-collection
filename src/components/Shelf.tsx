@@ -12,10 +12,14 @@ export default function Shelf() {
         console.log(value);
     }
 
+    function onSearchResultChanged(query: string) {
+        console.log(`Search: ${query}`);
+    }
+
     return (
         <div className='shelf'>
             <div className='search-sort-container'>
-                <SearchBar />
+                <SearchBar property='name' onChange={onSearchResultChanged}/>
                 <Sorting />
                 <Sorting />
                 <Sorting />
