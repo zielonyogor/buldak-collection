@@ -27,7 +27,7 @@ export default function BuldakDetails(props: BuldakInfoProps) {
                 </table>
             </div>
             <div className="detail-input-container">
-                <Rating rating={props.rating} maxValue={10}/>
+                <Rating rating={props.rating}/>
             </div>
         </div>
     )
