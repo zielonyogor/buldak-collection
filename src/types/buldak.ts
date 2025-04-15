@@ -3,7 +3,7 @@ export default interface BuldakInfoProps {
     name: string;
     imageUrl: string;
     rating: number;
-    spice: string;
+    spiciness: string;
     whereToBuy: Array<string>;
     bestWith: Array<string>;
 }

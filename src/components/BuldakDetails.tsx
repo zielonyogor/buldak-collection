@@ -13,7 +13,7 @@ export default function BuldakDetails(props: BuldakInfoProps) {
                         </tr>
                         <tr>
                             <td>Spice:</td>
-                            <td>{props.spice}</td>
+                            <td>{props.spiciness}</td>
                         </tr>
                         <tr>
                             <td>Best with:</td>
