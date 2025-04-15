@@ -1,10 +1,12 @@
 import BuldakInfoProps from "@/types/buldak";
 import Rating from "@/components/Rating";
+import potIcon from '@/assets/images/pot.svg';
 
 export default function BuldakDetails(props: BuldakInfoProps) {
     return (
         <div className="details-container">
             <div className="buldak-details">
+                <img src={potIcon} />
                 <table>
                     <tbody>
                         <tr>

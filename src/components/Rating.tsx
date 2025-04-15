@@ -24,6 +24,12 @@ export default function Rating({rating} : RatingProps) {
                 className={`circle ${i < currentRating ? 'filled' : ''}`}
             />
             ))}
+            <div
+                className="knob"
+                style={{
+                transform: `rotate(${(currentRating - 1) * (290 / 10) - 180}deg)`
+                }}
+            ></div>
             <input className="rating-input" type="range" 
                 min={1} max={10} step={1} value={currentRating}
                 onChange={handleChange}
