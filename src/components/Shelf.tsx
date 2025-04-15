@@ -16,6 +16,7 @@ interface ShelfProps {
 export default function Shelf({onItemClicked}: ShelfProps) {
 
     const [currentArray, setCurrentArray] = React.useState(buldakArray);
+    const [currentSort, setCurrentSort] = React.useState<{property: string, state: SortingState} | null>(null);
 
 
     function onSearchResultChanged(query: string) {
@@ -25,17 +26,25 @@ export default function Shelf({onItemClicked}: ShelfProps) {
     }
 
     function onSortingChanged(property: string, newSortingState: SortingState) {
-        console.log(`Sorting by: ${property} - ${newSortingState}`);
+        if(newSortingState === SortingState.off) {
+            setCurrentSort(null);
+            setCurrentArray(buldakArray);
+            return;
+        }
+        
+        setCurrentSort({property, state: newSortingState});
+        
+        console.log(`Sorting by: ${currentSort?.property} - ${currentSort?.state}`);
     }
 
     return (
         <div className='shelf'>
             <div className='search-sort-container'>
                 <SearchBar property='name' onChange={onSearchResultChanged}/>
-                
+
                 <Sorting property='name' onSortingChange={onSortingChanged} />
-                <Sorting property='spiciness' onSortingChange={onSortingChanged} />
                 <Sorting property='rating' onSortingChange={onSortingChanged} />
+                <Sorting property='spiciness' onSortingChange={onSortingChanged} />
             </div>
             <List>
                 {currentArray.map((buldak) => 
