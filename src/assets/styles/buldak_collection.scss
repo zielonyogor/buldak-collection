@@ -18,7 +18,8 @@ $knob-url: url("@/assets/images/knob.svg");
     flex-direction: column;
     align-items: center;
     height: 80vh;
-    margin-right: 30px;
+    flex-grow: 1;
+    margin-right: 40px;
 
     .list-container {
         margin-top: 30px;
@@ -27,15 +28,20 @@ $knob-url: url("@/assets/images/knob.svg");
     .search-sort-container {
         box-sizing: border-box;
         width: 100%;
-        padding: 0 20px;
         display: flex;
+        border: 8px solid $shelf-color;
+        border-radius: 6px;
 
         .search-container {
             flex-grow: 1;
 
             input {
                 width: 100%;
+                padding: 0.8em 0.5em;
             }
+        }
+        .sorting-btn {
+            background: $pot-color;
         }
     }
 }
@@ -49,6 +55,27 @@ $knob-url: url("@/assets/images/knob.svg");
     padding: 30px;
     width: 40%;
     flex-shrink: 0;
+}
+
+.detail-input-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: end;
+
+    button {
+        padding: 20px;
+        margin: 0 20px;
+        border-radius: 10px;
+        background-color: $metal-color;
+        cursor: pointer;
+
+        img {
+            width: 36px;
+            height: 36px;
+            fill:aqua;
+        }
+    }
 }
 
 .buldak-details {
@@ -80,6 +107,14 @@ $knob-url: url("@/assets/images/knob.svg");
                 td {
                     box-sizing: border-box;
                     padding: 8px;
+
+                    input {
+                        font-size: 1rem;
+                        &:disabled {
+                            color: $font-color-light;
+                            //background: none;
+                        }
+                    }
                 }
                 td:nth-child(1) {
                     font-weight: 500;
@@ -136,7 +171,6 @@ $knob-url: url("@/assets/images/knob.svg");
 }
 
 .rating-container {
-    cursor: grab;
     background-color: $metal-color;
     position: relative;
     width: 240px;

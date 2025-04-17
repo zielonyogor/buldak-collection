@@ -15,8 +15,8 @@ export default function Sorting({property, onSortingChange} : SortingProps) {
     }
 
     return (
-        <button onClick={updateSorting} className="sorting-container">
-            Sort
+        <button onClick={updateSorting} className="sorting-btn">
+            Sort {state === SortingState.asc ? '^' : state === SortingState.desc ? 'v' : '-'}
         </button>
     )
 }

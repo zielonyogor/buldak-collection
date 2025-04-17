@@ -2,9 +2,10 @@ import React from 'react';
 
 interface RatingProps {
     rating: number,
+    disabled: boolean
 }
 
-export default function Rating({rating} : RatingProps) {
+export default function Rating({rating, disabled = false} : RatingProps) {
     const [currentRating, setRating] = React.useState(rating);
 
     React.useEffect(() => {
@@ -33,6 +34,7 @@ export default function Rating({rating} : RatingProps) {
             <input className="rating-input" type="range" 
                 min={1} max={10} step={1} value={currentRating}
                 onChange={handleChange}
+                disabled={disabled}
             ></input>
         </div>
     )

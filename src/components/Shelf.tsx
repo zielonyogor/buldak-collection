@@ -13,28 +13,61 @@ interface ShelfProps {
     onItemClicked: (buldak: BuldakInfoProps) => void;
 }
 
+function compare(property: string, a: any, b: any) {
+    if(typeof a === 'string' && typeof b === 'string') {
+        return a.localeCompare(b);
+    } 
+    else if (typeof a === 'number' && typeof b === 'number') {
+        return a - b;
+    }
+
+    return 0;
+}
+
 export default function Shelf({onItemClicked}: ShelfProps) {
 
     const [currentArray, setCurrentArray] = React.useState(buldakArray);
-    const [currentSort, setCurrentSort] = React.useState<{property: string, state: SortingState} | null>(null);
+    const [currentShownArray, setCurrentShownArray] = React.useState(buldakArray);
+    const [currentSort, setCurrentSort] = React.useState<{property: string, state: SortingState}>({
+        property: 'name', 
+        state: SortingState.asc,
+    });
 
+    React.useEffect(() => {
+        applySorting(currentSort.property, currentSort.state);
+    }, [currentSort]);
 
     function onSearchResultChanged(query: string) {
-        console.log(`Search: ${query}`);
         const re = new RegExp(`.*${query}.*`);
-        setCurrentArray(buldakArray.filter((item) => re.test(item['name'].toLowerCase())));
+        setCurrentShownArray(currentArray.filter((item) => re.test(item['name'].toLowerCase())));
+        applySorting(currentSort.property, currentSort.state);
     }
 
     function onSortingChanged(property: string, newSortingState: SortingState) {
-        if(newSortingState === SortingState.off) {
-            setCurrentSort(null);
-            setCurrentArray(buldakArray);
+        if (newSortingState === SortingState.off) {
+            setCurrentSort({ property: 'name', state: SortingState.asc });
             return;
         }
-        
-        setCurrentSort({property, state: newSortingState});
-        
-        console.log(`Sorting by: ${currentSort?.property} - ${currentSort?.state}`);
+    
+        setCurrentSort({ property, state: newSortingState });
+    }
+
+    function applySorting(property: string, state: SortingState, baseArray = currentShownArray) {
+        if (state === SortingState.off) {
+            setCurrentShownArray(currentArray);
+            return;
+        }
+    
+        const sortedArray = [...baseArray].sort((a, b) => {
+            const aValue = a[property as keyof BuldakInfoProps];
+            const bValue = b[property as keyof BuldakInfoProps];
+            return state === SortingState.asc
+                ? compare(property, aValue, bValue)
+                : -compare(property, aValue, bValue);
+        });
+    
+        console.log(sortedArray);
+        setCurrentArray(sortedArray);
     }
 
     return (
@@ -47,7 +80,7 @@ export default function Shelf({onItemClicked}: ShelfProps) {
                 <Sorting property='spiciness' onSortingChange={onSortingChanged} />
             </div>
             <List>
-                {currentArray.map((buldak) => 
+                {currentShownArray.map((buldak) => 
                 <ListItem key={buldak.id} 
                     onClick={() => onItemClicked(buldak)} 
                     className='buldak-item'
