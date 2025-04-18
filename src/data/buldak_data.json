@@ -19,7 +19,7 @@
         "name": "Mala",
         "imageUrl": "https://www.okashi.pl/wp-content/uploads/2023/11/marajabv.jpg",
         "rating": 5,
-        "spiciness": "Mild",
+        "spiciness": "Extra Spicy",
         "whereToBuy": [
             "Carrefour",
             "Auchan"
@@ -34,7 +34,7 @@
         "name": "Black",
         "imageUrl": "https://www.okashi.pl/wp-content/uploads/2021/10/ramen-ostry-kurczak-140g.jpg",
         "rating": 7,
-        "spiciness": "Mild",
+        "spiciness": "Spicy",
         "whereToBuy": [
             "Carrefour",
             "Auchan"

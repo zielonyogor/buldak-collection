@@ -8,9 +8,10 @@ body {
     color: $font-color;
 }
 
-input[type="text"] {
+input[type="text"], input[type="textarea"], select {
     border: none;
     padding: 0.5em;
+    font-size: 1rem;
     font-family: "Azeret Mono", Verdana, Geneva, Tahoma, sans-serif;
 
     box-sizing: border-box;

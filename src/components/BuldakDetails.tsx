@@ -1,4 +1,4 @@
-import BuldakInfoProps from "@/types/buldak";
+import BuldakInfoProps, { Spiciness } from "@/types/buldak";
 import Rating from "@/components/Rating";
 import potIcon from '@/assets/images/pot.svg';
 import trashIcon from '@/assets/images/trash-fill.svg';
@@ -7,7 +7,7 @@ import React from "react";
 
 interface BuldakDetailsProps {
     props: BuldakInfoProps,
-    onEditClicked: (id: number) => void;
+    onEditClicked: (editedBuldak: BuldakInfoProps) => void;
     onDeleteClicked: (id: number) => void;
 }
 
@@ -15,11 +15,19 @@ export default function BuldakDetails({props, onEditClicked, onDeleteClicked} : 
     const [isEditing, setIsEditing] = React.useState(false);
     const [editingProps, setEditingProps] = React.useState(props);
 
+    React.useEffect(() => {
+        setEditingProps(props);
+        setIsEditing(false);
+    }, [props]);
+
     function switchEditBuldak() {
+        if(isEditing) {
+            onEditClicked(editingProps);
+        }
         setIsEditing(prevIsEditing => !prevIsEditing);
     }
 
-    function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+    function handleInputChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
         const { name, value } = e.target;
         if(name === "bestWith" || name === "whereToBuy"){
             
@@ -53,13 +61,16 @@ export default function BuldakDetails({props, onEditClicked, onDeleteClicked} : 
                         <tr>
                             <td>Spice:</td>
                             <td>
-                                <input 
+                                <select 
                                     name="spiciness"
-                                    type="text"
                                     onChange={handleInputChange}
                                     value={editingProps.spiciness}
                                     disabled = {!isEditing}
-                                />
+                                >
+                                    {Object.keys(Spiciness).map((spice) => 
+                                        <option key={spice} value={spice}>{spice}</option>
+                                    )}
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -95,8 +106,10 @@ export default function BuldakDetails({props, onEditClicked, onDeleteClicked} : 
                 >
                     <img src={editIcon} />
                 </button>
-                <Rating rating={props.rating} disabled={!isEditing}/>
-                <button >
+                <Rating rating={editingProps.rating} disabled={!isEditing} onRatingChange={handleInputChange} />
+                <button 
+                    onClick={() => onDeleteClicked(editingProps.id)}
+                >
                     <img src={trashIcon} />
                 </button>
             </div>

@@ -1,8 +1,8 @@
-export enum Spiciness {
-    Mild,
-    Spicy,
-    Extra_Spicy,
-    Dangerously_Spicy
+export const Spiciness: Record<string, number> = {
+    "Mild": 0,
+    "Spicy": 1,
+    "Extra Spicy": 2,
+    "Dangerously Spicy": 3,
 }
 
 export default interface BuldakInfoProps {

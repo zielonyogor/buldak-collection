@@ -1,22 +1,18 @@
 import { SortingState } from "@/types/sortingState"
-import React from "react"
+import { ReactNode } from "react"
 
 interface SortingProps {
     property: string;
-    onSortingChange: (property: string, newSortingState: SortingState) => void;
+    state: SortingState;
+    onSortingClick: (property: string) => void;
+    children?: ReactNode;
 }
 
-export default function Sorting({property, onSortingChange} : SortingProps) {
-    const [state, setState] = React.useState(SortingState.off);
-
-    function updateSorting() {
-        setState(prevState => (prevState + 1) % 3);
-        onSortingChange(property, state);
-    }
-
+export default function Sorting({property, state, onSortingClick, children} : SortingProps) {
+    const onClick = () => onSortingClick(property);
     return (
-        <button onClick={updateSorting} className="sorting-btn">
-            Sort {state === SortingState.asc ? '^' : state === SortingState.desc ? 'v' : '-'}
+        <button onClick={onClick} className="sorting-btn">
+            {children} {state === SortingState.asc ? '^' : state === SortingState.desc ? 'v' : '-'}
         </button>
     )
 }
