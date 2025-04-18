@@ -15,9 +15,15 @@ export default function BuldakDetails({props, onEditClicked, onDeleteClicked} : 
     const [isEditing, setIsEditing] = React.useState(false);
     const [editingProps, setEditingProps] = React.useState(props);
 
+    // temp for arrays
+    const [bestWithInput, setBestWithInput] = React.useState(props.bestWith.join(", "));
+    const [whereToBuyInput, setWhereToBuyInput] = React.useState(props.whereToBuy.join(", "));
+
     React.useEffect(() => {
         setEditingProps(props);
         setIsEditing(false);
+        setBestWithInput(props.bestWith.join(", "));
+        setWhereToBuyInput(props.whereToBuy.join(", "));
     }, [props]);
 
     function switchEditBuldak() {
@@ -29,8 +35,12 @@ export default function BuldakDetails({props, onEditClicked, onDeleteClicked} : 
 
     function handleInputChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
         const { name, value } = e.target;
-        if(name === "bestWith" || name === "whereToBuy"){
-            
+        if(name === "bestWith") {
+            setBestWithInput(value);
+
+        }
+        else if (name === "whereToBuy") {
+            setWhereToBuyInput(value);
         }
         else {
             setEditingProps(prevProps => ({
@@ -40,6 +50,21 @@ export default function BuldakDetails({props, onEditClicked, onDeleteClicked} : 
         }
     }
 
+    function handleArrayChange(e: React.FocusEvent<HTMLInputElement>) {
+        const { name, value } = e.target;
+        setEditingProps(prevProps => ({
+            ...prevProps,
+            [name]: value.split(",").map(item => item.trim()).filter(item => item !== "")
+        }));
+    }
+
+    function setRating(newRating: number) {
+        setEditingProps(prevProps => ({
+            ...prevProps, 
+            ["rating"]: newRating
+        }));
+    }
+ 
     return (
         <div className="details-container">
             <div className="buldak-details">
@@ -79,8 +104,9 @@ export default function BuldakDetails({props, onEditClicked, onDeleteClicked} : 
                                 <input 
                                     name="bestWith"
                                     type="text"
+                                    onBlur={handleArrayChange}
                                     onChange={handleInputChange}
-                                    value={editingProps.bestWith.join(", ")}
+                                    value={bestWithInput}
                                     disabled = {!isEditing}
                                 />
                             </td>
@@ -91,8 +117,9 @@ export default function BuldakDetails({props, onEditClicked, onDeleteClicked} : 
                                 <input 
                                     name="whereToBuy"
                                     type="text"
+                                    onBlur={handleArrayChange}
                                     onChange={handleInputChange}
-                                    value={editingProps.whereToBuy.join(", ")}
+                                    value={whereToBuyInput}
                                     disabled = {!isEditing}
                                 />
                             </td>
@@ -106,7 +133,7 @@ export default function BuldakDetails({props, onEditClicked, onDeleteClicked} : 
                 >
                     <img src={editIcon} />
                 </button>
-                <Rating rating={editingProps.rating} disabled={!isEditing} onRatingChange={handleInputChange} />
+                <Rating rating={editingProps.rating} disabled={!isEditing} onRatingChange={setRating} />
                 <button 
                     onClick={() => onDeleteClicked(editingProps.id)}
                 >

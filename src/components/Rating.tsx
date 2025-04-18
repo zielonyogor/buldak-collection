@@ -3,7 +3,7 @@ import React from 'react';
 interface RatingProps {
     rating: number,
     disabled: boolean,
-    onRatingChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onRatingChange: (newRating: number) => void;
 }
 
 export default function Rating({rating, disabled = false, onRatingChange} : RatingProps) {
@@ -15,8 +15,8 @@ export default function Rating({rating, disabled = false, onRatingChange} : Rati
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
         console.log(`current rating: ${e.currentTarget.value}`);
-        //onRatingChange(parseInt(e.currentTarget.value));
-        //setRating(Number(e.currentTarget.value));
+        onRatingChange(parseInt(e.currentTarget.value));
+        setRating(Number(e.currentTarget.value));
     }
     
     return (
@@ -35,7 +35,7 @@ export default function Rating({rating, disabled = false, onRatingChange} : Rati
             ></div>
             <input className="rating-input" type="range" 
                 min={1} max={10} step={1} value={currentRating}
-                onChange={onRatingChange}
+                onChange={handleChange}
                 disabled={disabled}
             ></input>
         </div>
