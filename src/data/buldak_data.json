@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Carbonara",
-        "imageUrl": "https://cosdobrego.eu/userdata/public/gfx/3936/SamYang-Zupka-Carbonara-Ramen-Makaron-Buldak-Hot-Chicken-Ostry-Kurczak-130g.jpg",
+        "packageColor": "#FAA5C0",
         "rating": 8,
         "spiciness": "Mild",
         "whereToBuy": [
@@ -17,7 +17,7 @@
     {
         "id": 2,
         "name": "Mala",
-        "imageUrl": "https://www.okashi.pl/wp-content/uploads/2023/11/marajabv.jpg",
+        "packageColor": "#DC2959",
         "rating": 5,
         "spiciness": "Extra Spicy",
         "whereToBuy": [
@@ -32,7 +32,7 @@
     {
         "id": 3,
         "name": "Black",
-        "imageUrl": "https://www.okashi.pl/wp-content/uploads/2021/10/ramen-ostry-kurczak-140g.jpg",
+        "packageColor": "#2A272D",
         "rating": 7,
         "spiciness": "Spicy",
         "whereToBuy": [
@@ -47,7 +47,7 @@
     {
         "id": 4,
         "name": "Jjajang",
-        "imageUrl": "https://wokanmi.pl/userdata/public/gfx/194/samyang-ramen-jjajang.jpg",
+        "packageColor": "#84DC3B",
         "rating": 10,
         "spiciness": "Mild",
         "whereToBuy": [

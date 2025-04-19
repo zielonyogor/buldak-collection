@@ -8,6 +8,8 @@ interface ListItemProps {
 
 export default function ListItem({className = "", children, onClick}: ListItemProps) {
     return (
-        <button className={`list-item ${className}`} onClick={onClick} >{children}</button>
+        <div className={`list-item ${className}`}>
+            <button onClick={onClick} >{children}</button>
+        </div>
     )
 }

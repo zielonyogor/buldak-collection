@@ -1,8 +1,9 @@
 import BuldakInfoProps, { Spiciness } from "@/types/buldak";
 import Rating from "@/components/Rating";
-import potIcon from '@/assets/images/pot.svg';
-import trashIcon from '@/assets/images/trash-fill.svg';
-import editIcon from '@/assets/images/edit-svgrepo-com.svg';
+import potIcon from '@/assets/images/icons/pot.svg';
+import trashIcon from '@/assets/images/icons/trash-fill.svg';
+import editIcon from '@/assets/images/icons/edit-svgrepo-com.svg';
+import saveIcon from '@/assets/images/icons/floppy-fill.svg';
 import React from "react";
 
 interface BuldakDetailsProps {
@@ -21,7 +22,12 @@ export default function BuldakDetails({props, onEditClicked, onDeleteClicked} : 
 
     React.useEffect(() => {
         setEditingProps(props);
-        setIsEditing(false);
+        if(props.id === 0) {
+            setIsEditing(true);
+        }
+        else {
+            setIsEditing(false);
+        }
         setBestWithInput(props.bestWith.join(", "));
         setWhereToBuyInput(props.whereToBuy.join(", "));
     }, [props]);
@@ -131,7 +137,7 @@ export default function BuldakDetails({props, onEditClicked, onDeleteClicked} : 
                 <button 
                     onClick={switchEditBuldak}
                 >
-                    <img src={editIcon} />
+                    <img src={isEditing ? saveIcon : editIcon} />
                 </button>
                 <Rating rating={editingProps.rating} disabled={!isEditing} onRatingChange={setRating} />
                 <button 

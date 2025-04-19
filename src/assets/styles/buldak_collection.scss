@@ -1,7 +1,7 @@
 @use "@/assets/styles/colors" as *;
 
-$pot-url: url("@/assets/images/pot.svg");
-$knob-url: url("@/assets/images/knob.svg");
+$pot-url: url("@/assets/images/icons/pot.svg");
+$knob-url: url("@/assets/images/icons/knob.svg");
 
 .buldak-app {
     width: 100vw;
@@ -23,6 +23,8 @@ $knob-url: url("@/assets/images/knob.svg");
 
     .list-container {
         margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
     }
 
     .search-sort-container {
@@ -73,16 +75,11 @@ $knob-url: url("@/assets/images/knob.svg");
         img {
             width: 36px;
             height: 36px;
-            fill:aqua;
         }
     }
 }
 
 .buldak-details {
-    //padding: 60px 40px 20px 40px ;
-    // background-image: $pot-url;
-    // background-size: cover;
-
     color: $font-color-light;
     position: relative;
     margin-bottom: 40px;
@@ -108,11 +105,13 @@ $knob-url: url("@/assets/images/knob.svg");
                     box-sizing: border-box;
                     padding: 8px;
 
-                    input {
+                    input, select {
                         font-size: 1rem;
+                        width: 100%;
                         &:disabled {
                             color: $font-color-light;
-                            //background: none;
+                            background: none;
+                            opacity: 100;
                         }
                     }
                 }
@@ -129,8 +128,14 @@ $knob-url: url("@/assets/images/knob.svg");
 }
 
 .buldak-item {
-    margin: 10px;
-
+    margin: 20px 30px;
+    width: 200px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    
     &::after {
         margin-top: 4px;
         content: "";
@@ -141,20 +146,42 @@ $knob-url: url("@/assets/images/knob.svg");
         box-shadow: 0px 4px 4px -1px rgba(0, 0, 0, 0.5);
     }
 
-    img {
-        width: 120px;
-        max-height: 120px;
+    button {
+        background: none;
 
-        &:hover {
-            animation: float-up-down 1.6s ease-in-out infinite;
+        svg{
+            width: 120px;
+            max-height: 120px;
+            flex-grow: 1;
+    
+            &:hover {
+                animation: float-up-down 1.6s ease-in-out infinite;
+            }
         }
     }
+
 
     &:focus {
         border: none;
         img {
             animation: float-up-down 1.6s ease-in-out infinite;
         }
+    }
+}
+
+.add-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .color-btn {
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        color: $font-color-light;
+        font-weight: 900;
+        box-shadow:  0px 4px 4px -1px rgba(0, 0, 0, 0.5);
+        background-color: $shelf-color;
     }
 }
 

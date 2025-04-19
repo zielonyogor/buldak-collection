@@ -16,6 +16,10 @@ export default function App() {
 
   function editItem(editedBuldak: BuldakInfoProps) {
     console.log(`Saving: ${editedBuldak}`);
+    if(editedBuldak.id === 0) {
+      editedBuldak.id = Math.max(0, ...currentArray.map(item => item.id)) + 1;
+      setCurrentArray(prevArray => [...prevArray, editedBuldak]);
+    }
     setCurrentArray(prevArray => prevArray.map( item =>
       item.id === editedBuldak.id ? editedBuldak : item
     ));
@@ -27,9 +31,21 @@ export default function App() {
     console.log(currentArray);
   }
 
+  function addItem(color: string) {
+    setBuldak({
+      id: 0,
+      name: "",
+      spiciness: "Spicy",
+      bestWith: [],
+      whereToBuy: [],
+      rating: 0,
+      packageColor: color,  
+    });
+  }
+
   return (
     <div className='buldak-app'>
-      <Shelf array={currentArray} onItemClicked={onItemClicked}/>
+      <Shelf array={currentArray} onItemClicked={onItemClicked} onAddItem={addItem}/>
       {buldak && <BuldakDetails props={buldak} onEditClicked={editItem} onDeleteClicked={deleteItem} />}
     </div>
   )
