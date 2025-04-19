@@ -1,4 +1,5 @@
 @use "@/assets/styles/colors" as *;
+@use 'sass:color';
 
 $pot-url: url("@/assets/images/icons/pot.svg");
 $knob-url: url("@/assets/images/icons/knob.svg");
@@ -71,6 +72,11 @@ $knob-url: url("@/assets/images/icons/knob.svg");
         border-radius: 10px;
         background-color: $metal-color;
         cursor: pointer;
+        transition: background-color 0.4s ease-in-out;
+
+        &:hover {
+            background-color: color.adjust($metal-color, $lightness: -5%);
+        }
 
         img {
             width: 36px;
