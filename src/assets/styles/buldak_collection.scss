@@ -100,7 +100,7 @@ $knob-url: url("@/assets/images/icons/knob.svg");
     table {
         position: absolute;
         width: 72%;
-        top: 22%;
+        top: 16%;
         left: 50%;
         transform: translateX(-50%);
 
@@ -111,13 +111,24 @@ $knob-url: url("@/assets/images/icons/knob.svg");
                     box-sizing: border-box;
                     padding: 8px;
 
-                    input, select {
+                    input, select, textarea {
                         font-size: 1rem;
                         width: 100%;
                         &:disabled {
                             color: $font-color-light;
                             background: none;
                             opacity: 100;
+                        }
+                    }
+
+                    textarea {
+                        resize: none;
+                        overflow-y: scroll;
+                        &::-webkit-scrollbar {
+                            display: none;
+                        }
+                        &::placeholder {
+                            color: $font-color-light;
                         }
                     }
                 }

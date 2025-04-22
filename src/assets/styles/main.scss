@@ -8,7 +8,7 @@ body {
     color: $font-color;
 }
 
-input[type="text"], input[type="textarea"], select {
+input[type="text"], textarea, select {
     border: none;
     padding: 0.5em;
     font-size: 1rem;

@@ -21,13 +21,9 @@
         "rating": 5,
         "spiciness": "Extra Spicy",
         "whereToBuy": [
-            "Carrefour",
-            "Auchan"
+            "Cons"
         ],
-        "bestWith": [
-            "Corn",
-            "Cheese"
-        ]
+        "bestWith": []
     },
     {
         "id": 3,
@@ -37,11 +33,14 @@
         "spiciness": "Spicy",
         "whereToBuy": [
             "Carrefour",
-            "Auchan"
+            "Auchan",
+            "Biedronka"
         ],
         "bestWith": [
             "Corn",
-            "Cheese"
+            "Cheese",
+            "Green onion",
+            "Egg"
         ]
     },
     {
@@ -51,12 +50,20 @@
         "rating": 10,
         "spiciness": "Mild",
         "whereToBuy": [
-            "Carrefour",
-            "Auchan"
+            "Asian Market",
+            "Kuchnie świata"
         ],
-        "bestWith": [
-            "Corn",
-            "Cheese"
-        ]
+        "bestWith": []
+    },
+    {
+        "id": 5,
+        "name": "Teriyaki",
+        "packageColor": "#432B83",
+        "rating": 10,
+        "spiciness": "Spicy",
+        "whereToBuy": [
+            "Thailand"
+        ],
+        "bestWith": []
     }
 ]

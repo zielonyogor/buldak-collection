@@ -39,7 +39,7 @@ export default function BuldakDetails({props, onEditClicked, onDeleteClicked} : 
         setIsEditing(prevIsEditing => !prevIsEditing);
     }
 
-    function handleInputChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+    function handleInputChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
         const { name, value } = e.target;
         if(name === "bestWith") {
             setBestWithInput(value);
@@ -56,7 +56,7 @@ export default function BuldakDetails({props, onEditClicked, onDeleteClicked} : 
         }
     }
 
-    function handleArrayChange(e: React.FocusEvent<HTMLInputElement>) {
+    function handleArrayChange(e: React.FocusEvent<HTMLTextAreaElement>) {
         const { name, value } = e.target;
         setEditingProps(prevProps => ({
             ...prevProps,
@@ -107,27 +107,29 @@ export default function BuldakDetails({props, onEditClicked, onDeleteClicked} : 
                         <tr>
                             <td>Best with:</td>
                             <td>
-                                <input 
+                                <textarea 
                                     name="bestWith"
-                                    type="text"
                                     onBlur={handleArrayChange}
                                     onChange={handleInputChange}
                                     value={bestWithInput}
                                     disabled = {!isEditing}
-                                />
+                                    placeholder="-"
+                                    cols={2}
+                                ></textarea>
                             </td>
                         </tr>
                         <tr>
                             <td>Where to buy:</td>
                             <td>
-                                <input 
+                                <textarea 
                                     name="whereToBuy"
-                                    type="text"
                                     onBlur={handleArrayChange}
                                     onChange={handleInputChange}
                                     value={whereToBuyInput}
                                     disabled = {!isEditing}
-                                />
+                                    placeholder="-"
+                                    cols={2}
+                                ></textarea>
                             </td>
                         </tr>
                     </tbody>
