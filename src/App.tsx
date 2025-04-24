@@ -38,7 +38,7 @@ export default function App() {
       spiciness: "Spicy",
       bestWith: [],
       whereToBuy: [],
-      rating: 0,
+      rating: 1,
       packageColor: color,  
     });
   }
